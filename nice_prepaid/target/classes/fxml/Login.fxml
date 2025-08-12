@@ -44,24 +44,16 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.niceprepaid.LoginController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="623.0" fitWidth="436.0" layoutX="3.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@../../../../Downloads/Hakkımızda%201B.jpg" />
-               </image>
-               <effect>
-                  <ColorAdjust brightness="-0.64" />
-               </effect>
-            </ImageView>
-            <ImageView fitHeight="623.0" fitWidth="607.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="608.0" fitWidth="463.0" layoutX="-24.0" layoutY="-1.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/pexels-mikhail-nilov-8299565.jpg" />
                </image>
                <effect>
-                  <ColorAdjust brightness="-0.47" />
+                  <ColorAdjust brightness="-0.64" />
                </effect>
             </ImageView>
             <VBox alignment="CENTER" layoutX="83.0" layoutY="57.0" prefHeight="475.0" prefWidth="276.0" spacing="15.0">
@@ -80,6 +72,7 @@
                   <Button alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 2; -fx-background-color: white; -fx-text-fill: black;" text="Become a Customer" textAlignment="CENTER" />
                </children>
             </VBox>
+            <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </AnchorPane>
    </center>
