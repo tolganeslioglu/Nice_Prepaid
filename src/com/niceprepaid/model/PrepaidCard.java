@@ -1,3 +1,5 @@
+package com.niceprepaid.model;
+
 public class PrepaidCard extends Card{
     
     private double balance;

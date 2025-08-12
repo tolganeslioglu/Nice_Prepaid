@@ -44,7 +44,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.niceprepaid.LoginController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -58,11 +58,12 @@
             </ImageView>
             <ImageView fitHeight="623.0" fitWidth="607.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@Hakkımızda%201B.jpg" />
+                  <Image url="@../images/pexels-mikhail-nilov-8299565.jpg" />
                </image>
                <effect>
                   <ColorAdjust brightness="-0.47" />
-               </effect></ImageView>
+               </effect>
+            </ImageView>
             <VBox alignment="CENTER" layoutX="83.0" layoutY="57.0" prefHeight="475.0" prefWidth="276.0" spacing="15.0">
                <padding>
                   <Insets top="20.0" />
@@ -70,7 +71,7 @@
                <children>
                   <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
                      <image>
-                        <Image url="@ChatGPT%20Image%20Aug%2012,%202025%20at%2003_16_33%20PM.png" />
+                        <Image url="@../images/ChatGPT%20Image%20Aug%2012,%202025%20at%2003_16_33%20PM.png" />
                      </image>
                   </ImageView>
                   <TextField prefHeight="22.0" prefWidth="209.0" promptText="Customer Number" />
@@ -79,11 +80,6 @@
                   <Button alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 2; -fx-background-color: white; -fx-text-fill: black;" text="Become a Customer" textAlignment="CENTER" />
                </children>
             </VBox>
-            <ImageView fitHeight="25.0" fitWidth="138.0" layoutX="181.0" layoutY="566.0" pickOnBounds="true" preserveRatio="true">
-               <image>
-                  <Image url="@ISCTR.IS_BIG.D.png" />
-               </image>
-            </ImageView>
          </children>
       </AnchorPane>
    </center>

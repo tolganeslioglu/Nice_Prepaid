@@ -1,3 +1,5 @@
+package com.niceprepaid.model;
+
 public class Card {
     
     private int CustomerID;
