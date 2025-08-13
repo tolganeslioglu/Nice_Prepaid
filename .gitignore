@@ -1,0 +1,19 @@
+# Maven target klasörü
+/target/
+
+# Derlenmiş Java sınıfları
+*.class
+
+# Jar ve diğer paketleme çıktıları
+*.jar
+*.war
+*.ear
+
+# IDE ve editör dosyaları
+.vscode/
+
+# MacOS gizli dosyaları
+.DS_Store
+
+# Log dosyaları
+*.log
