@@ -45,7 +45,7 @@
 <?import javafx.scene.layout.BorderPane?>
 <?import javafx.scene.layout.VBox?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.niceprepaid.ui.LoginController">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.niceprepaid.ui.CustomerCreationController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -62,24 +62,19 @@
                   <Insets top="20.0" />
                </padding>
                <children>
-                  <ImageView fitHeight="150.0" fitWidth="200.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fitHeight="108.0" fitWidth="117.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../images/chatgpt-logo.png" />
                      </image>
                   </ImageView>
                   <Label fx:id="errorLabel" textFill="red" />
-                  <TextField fx:id="usernameField" prefHeight="22.0" prefWidth="209.0" promptText="Customer Number" />
-                  <PasswordField fx:id="passwordField" promptText="Passcode" />
-                  <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 2; -fx-background-color: #329dfa; -fx-text-fill: white;" text="Login" textAlignment="CENTER" textFill="WHITE" />
-                  <Button fx:id="becomeCustomerButton" 
-        alignment="CENTER" 
-        mnemonicParsing="false" 
-        onAction="#handleBecomeCustomer"
-        prefHeight="31.0" 
-        prefWidth="306.0" 
-        style="-fx-background-radius: 2; -fx-background-color: white; -fx-text-fill: black;" 
-        text="Become a Customer" 
-        textAlignment="CENTER" />
+                  <TextField fx:id="tcknField" prefHeight="22.0" prefWidth="209.0" promptText="Turkish ID Number" />
+                  <TextField fx:id="nameField" prefHeight="22.0" prefWidth="209.0" promptText="Name" />
+                  <TextField fx:id="surnameField" prefHeight="22.0" prefWidth="209.0" promptText="Surname" />
+                  <TextField fx:id="phoneField" prefHeight="22.0" prefWidth="209.0" promptText="Phone Number" />
+                  <PasswordField fx:id="passcodeField1" promptText="Enter a Passcode of 6 Digits" />
+                  <PasswordField fx:id="passcodeField2" promptText="Enter the Passcode Again" />
+                  <Button fx:id="signUpField" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 2; -fx-background-color: #329dfa; -fx-text-fill: white;" text="Sign Up" textAlignment="CENTER" textFill="WHITE" />
                </children>
             </VBox>
          </children>

@@ -71,7 +71,15 @@
                   <TextField fx:id="usernameField" prefHeight="22.0" prefWidth="209.0" promptText="Customer Number" />
                   <PasswordField fx:id="passwordField" promptText="Passcode" />
                   <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 2; -fx-background-color: #329dfa; -fx-text-fill: white;" text="Login" textAlignment="CENTER" textFill="WHITE" />
-                  <Button alignment="CENTER" mnemonicParsing="false" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 2; -fx-background-color: white; -fx-text-fill: black;" text="Become a Customer" textAlignment="CENTER" />
+                  <Button fx:id="becomeCustomerButton" 
+        alignment="CENTER" 
+        mnemonicParsing="false" 
+        onAction="#handleBecomeCustomer"
+        prefHeight="31.0" 
+        prefWidth="306.0" 
+        style="-fx-background-radius: 2; -fx-background-color: white; -fx-text-fill: black;" 
+        text="Become a Customer" 
+        textAlignment="CENTER" />
                </children>
             </VBox>
          </children>
