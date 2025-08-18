@@ -1,0 +1,60 @@
+{
+  "cards": [
+    {
+      "customerID": 1001,
+      "cardNumber": "4532123456781234",
+      "cardLogo": "VISA",
+      "expirationDate": "2027-12",
+      "cvv": "123",
+      "balance": 1500.50
+    },
+    {
+      "customerID": 1002,
+      "cardNumber": "5412345678904321",
+      "cardLogo": "MASTERCARD",
+      "expirationDate": "2026-08",
+      "cvv": "456",
+      "balance": 2750.75
+    },
+    {
+      "customerID": 1003,
+      "cardNumber": "4916789012345678",
+      "cardLogo": "VISA",
+      "expirationDate": "2028-03",
+      "cvv": "789",
+      "balance": 3200.00
+    },
+    {
+      "customerID": 1004,
+      "cardNumber": "5234567890123456",
+      "cardLogo": "MASTERCARD",
+      "expirationDate": "2027-06",
+      "cvv": "234",
+      "balance": 1800.25
+    },
+    {
+      "customerID": 1005,
+      "cardNumber": "4485678901234567",
+      "cardLogo": "VISA",
+      "expirationDate": "2026-11",
+      "cvv": "567",
+      "balance": 950.00
+    },
+    {
+      "customerID": 1007,
+      "cardNumber": "5189012345678901",
+      "cardLogo": "MASTERCARD",
+      "expirationDate": "2028-09",
+      "cvv": "890",
+      "balance": 4500.00
+    },
+    {
+      "customerID": 1008,
+      "cardNumber": "4716789012345678",
+      "cardLogo": "VISA",
+      "expirationDate": "2027-04",
+      "cvv": "345",
+      "balance": 2100.50
+    }
+  ]
+}

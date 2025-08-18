@@ -8,7 +8,6 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.control.Label;
 import javafx.event.ActionEvent;
-import java.io.InputStream;
 import java.io.File;
 import java.io.IOException;
 import javafx.fxml.FXMLLoader;
@@ -17,6 +16,7 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
 import com.niceprepaid.model.Customer;
+import com.niceprepaid.model.PrepaidCard;
 import java.util.Date;
 
 public class LoginController {
@@ -37,6 +37,7 @@ public class LoginController {
     private Button becomeCustomerButton;
 
     private JsonNode credentials;
+    private JsonNode prepaidCards;
 
     private Customer loggedInCustomer;
 
@@ -59,6 +60,21 @@ public class LoginController {
             }
         } catch (IOException e) {
             System.err.println("Error loading credentials: " + e.getMessage());
+        }
+    }
+
+    private void loadPrepaidCards() {
+        ObjectMapper mapper = new ObjectMapper();
+        File prepaidcardsFile = new File("prepaidcards.json");
+        try {
+            if (prepaidcardsFile.exists()) {
+                    credentials = mapper.readTree(prepaidcardsFile);
+                } else {
+                    System.err.println("Prepaid cards file not found: " + prepaidcardsFile.getAbsolutePath());
+                }
+            }
+        catch (IOException e) {
+            System.err.println("Error loading prepaid cards: " + e.getMessage());
         }
     }
 
@@ -120,6 +136,46 @@ public class LoginController {
         return null;
     }
 
+    private PrepaidCard validatePrepaidCards(int customerID) {
+        try {
+            ObjectMapper mapper = new ObjectMapper();
+            File cardsFile = new File("prepaidcards.json");
+            
+            if (!cardsFile.exists()) {
+                System.err.println("Cards file not found: " + cardsFile.getAbsolutePath());
+                return null;
+            }
+
+            prepaidCards = mapper.readTree(cardsFile);
+            JsonNode cards = prepaidCards.get("cards");
+            
+            if (cards == null || !cards.isArray()) {
+                System.err.println("Invalid cards format in JSON");
+                return null;
+            }
+
+            for (JsonNode cardNode : cards) {
+                if (cardNode.get("customerID").asInt() == customerID) {
+                    return new PrepaidCard(
+                        customerID,
+                        cardNode.get("cardNumber").asText(),
+                        cardNode.get("cardLogo").asText(),
+                        cardNode.get("expirationDate").asText(),
+                        cardNode.get("cvv").asText(),
+                        cardNode.get("balance").asDouble()
+                    );
+                }
+            }
+            
+            System.err.println("No card found for customer ID: " + customerID);
+            return null;
+
+        } catch (IOException e) {
+            System.err.println("Error loading prepaid cards: " + e.getMessage());
+            return null;
+        }
+    }
+
     @FXML
     private void handleLogin(ActionEvent event) {
         if (usernameField != null && passwordField != null) {
@@ -128,14 +184,17 @@ public class LoginController {
 
             Customer customer = validateCredentials(tckn, passcode);
             if (customer != null) {
+                PrepaidCard prepaidCard = validatePrepaidCards(customer.getCustomerID());
                 loggedInCustomer = customer;
-                errorLabel.setText("Giriş başarılı!");
+                errorLabel.setText("Login Succesful!");
+                
                 try {
                     FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"));
                     Parent homeView = loader.load();
 
                     HomeController homeController = loader.getController();
                     homeController.setCustomer(loggedInCustomer);
+                    homeController.setPrepaidCard(prepaidCard);
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene = new Scene(homeView);
@@ -147,7 +206,7 @@ public class LoginController {
                     System.err.println("Error loading Home.fxml: " + e.getMessage());
                 }
             } else {
-                errorLabel.setText("TCKN veya şifre hatalı.");
+                errorLabel.setText("TCKN or passcode is incorrect.");
             }
         }
     }
