@@ -16,6 +16,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.scene.Node;
+import com.niceprepaid.model.Customer;
+import java.util.Date;
 
 public class LoginController {
 
@@ -35,6 +37,8 @@ public class LoginController {
     private Button becomeCustomerButton;
 
     private JsonNode credentials;
+
+    private Customer loggedInCustomer;
 
     @FXML
     private void initialize() {
@@ -58,17 +62,62 @@ public class LoginController {
         }
     }
 
-    private boolean validateCredentials(String tckn, String passcode) {
-        if (credentials == null) return false;
+    private Customer validateCredentials(String tckn, String passcode) {
+        if (credentials == null) return null;
 
         JsonNode customers = credentials.get("customers");
-        for (JsonNode customer : customers) {
-            if (customer.get("tckn").asText().equals(tckn) && 
-                customer.get("passcode").asText().equals(passcode)) {
-                return true;
+        if (customers == null || !customers.isArray()) return null;
+
+        int passcodeInt;
+        try {
+            passcodeInt = Integer.parseInt(passcode);
+        } catch (NumberFormatException e) {
+            return null;
+        }
+
+        for (JsonNode customerNode : customers) {
+            // Null-safe access for TCKN
+            String jsonTckn = customerNode.hasNonNull("tckn") ? customerNode.get("tckn").asText() : null;
+
+            // Check passcode exists and is a valid integer
+            if (!customerNode.hasNonNull("passcode")) continue;
+            String jsonPasscodeStr = customerNode.get("passcode").asText();
+            int jsonPasscodeInt;
+            try {
+                jsonPasscodeInt = Integer.parseInt(jsonPasscodeStr);
+            } catch (NumberFormatException e) {
+                continue;
+            }
+
+            if (tckn != null && tckn.equals(jsonTckn) && passcodeInt == jsonPasscodeInt) {
+                int customerID = customerNode.hasNonNull("customerID") ? customerNode.get("customerID").asInt() : 0;
+                String name = customerNode.hasNonNull("name") ? customerNode.get("name").asText() : "";
+                String surname = customerNode.hasNonNull("surname") ? customerNode.get("surname").asText() : "";
+                String email = customerNode.hasNonNull("email") ? customerNode.get("email").asText() : "";
+                String phoneNumber = customerNode.hasNonNull("phoneNumber") ? customerNode.get("phoneNumber").asText() : "";
+                // Use "birthDate" from JSON, handle both timestamp and string
+                Date dateOfBirth = null;
+                if (customerNode.has("birthDate") && !customerNode.get("birthDate").isNull()) {
+                    JsonNode birthDateNode = customerNode.get("birthDate");
+                    if (birthDateNode.isNumber()) {
+                        dateOfBirth = new Date(birthDateNode.asLong());
+                    } else if (birthDateNode.isTextual()) {
+                        String dobString = birthDateNode.asText();
+                        try {
+                            dateOfBirth = new Date(Long.parseLong(dobString));
+                        } catch (NumberFormatException e) {
+                            try {
+                                dateOfBirth = new Date(dobString);
+                            } catch (Exception ex) {
+                                dateOfBirth = null;
+                            }
+                        }
+                    }
+                }
+                return new Customer(tckn, customerID, name, surname, email, phoneNumber, dateOfBirth, jsonPasscodeInt);
             }
         }
-        return false;
+        return null;
     }
 
     @FXML
@@ -77,12 +126,27 @@ public class LoginController {
             String tckn = usernameField.getText();
             String passcode = passwordField.getText();
 
-            if (validateCredentials(tckn, passcode)) {
-                // Login successful
+            Customer customer = validateCredentials(tckn, passcode);
+            if (customer != null) {
+                loggedInCustomer = customer;
                 errorLabel.setText("Giriş başarılı!");
-                // Add code here to switch to main application scene
+                try {
+                    FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"));
+                    Parent homeView = loader.load();
+
+                    HomeController homeController = loader.getController();
+                    homeController.setCustomer(loggedInCustomer);
+
+                    Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                    Scene scene = new Scene(homeView);
+                    stage.setScene(scene);
+                    stage.show();
+
+                } catch (IOException e) {
+                    errorLabel.setText("Error loading home page");
+                    System.err.println("Error loading Home.fxml: " + e.getMessage());
+                }
             } else {
-                // Login failed
                 errorLabel.setText("TCKN veya şifre hatalı.");
             }
         }

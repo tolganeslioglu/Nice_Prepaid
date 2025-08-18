@@ -67,7 +67,7 @@
                         <Image url="@../images/chatgpt-logo.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="errorLabel" textFill="red" />
+                  <Label fx:id="errorLabel" textFill="white" />
                   <TextField fx:id="usernameField" prefHeight="22.0" prefWidth="209.0" promptText="Customer Number" />
                   <PasswordField fx:id="passwordField" promptText="Passcode" />
                   <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 2; -fx-background-color: #329dfa; -fx-text-fill: white;" text="Login" textAlignment="CENTER" textFill="WHITE" />

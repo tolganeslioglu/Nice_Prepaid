@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.niceprepaid.AppTest" time="0.011" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="com.niceprepaid.AppTest" time="0.01" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="24"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -12,7 +12,7 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="TR"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/24.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/target/surefire/surefirebooter6499655462357628536.jar /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/target/surefire 2025-08-14T15-20-27_425-jvmRun1 surefire17737429490051208933tmp surefire_07361777832094931971tmp"/>
+    <property name="sun.java.command" value="/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/target/surefire/surefirebooter715285900027153007.jar /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/target/surefire 2025-08-18T15-30-31_394-jvmRun1 surefire353137924389842694tmp surefire_016154134438468694630tmp"/>
     <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/target/test-classes:/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/target/classes:/Users/tolga/.m2/repository/junit/junit/4.11/junit-4.11.jar:/Users/tolga/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/Users/tolga/.m2/repository/org/openjfx/javafx-controls/21.0.2/javafx-controls-21.0.2.jar:/Users/tolga/.m2/repository/org/openjfx/javafx-controls/21.0.2/javafx-controls-21.0.2-mac-aarch64.jar:/Users/tolga/.m2/repository/org/openjfx/javafx-graphics/21.0.2/javafx-graphics-21.0.2.jar:/Users/tolga/.m2/repository/org/openjfx/javafx-graphics/21.0.2/javafx-graphics-21.0.2-mac-aarch64.jar:/Users/tolga/.m2/repository/org/openjfx/javafx-base/21.0.2/javafx-base-21.0.2.jar:/Users/tolga/.m2/repository/org/openjfx/javafx-base/21.0.2/javafx-base-21.0.2-mac-aarch64.jar:/Users/tolga/.m2/repository/org/openjfx/javafx-fxml/21.0.2/javafx-fxml-21.0.2.jar:/Users/tolga/.m2/repository/org/openjfx/javafx-fxml/21.0.2/javafx-fxml-21.0.2-mac-aarch64.jar:/Users/tolga/.m2/repository/com/gluonhq/charm-glisten/6.2.3/charm-glisten-6.2.3.jar:/Users/tolga/.m2/repository/com/fasterxml/jackson/core/jackson-databind/2.15.2/jackson-databind-2.15.2.jar:/Users/tolga/.m2/repository/com/fasterxml/jackson/core/jackson-annotations/2.15.2/jackson-annotations-2.15.2.jar:/Users/tolga/.m2/repository/com/fasterxml/jackson/core/jackson-core/2.15.2/jackson-core-2.15.2.jar:"/>
@@ -29,7 +29,7 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/target/surefire/surefirebooter6499655462357628536.jar"/>
+    <property name="surefire.real.class.path" value="/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/target/surefire/surefirebooter715285900027153007.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
     <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="24.0.2"/>

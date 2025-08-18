@@ -1,7 +1,8 @@
-com/niceprepaid/ui/LoginController.class
+com/niceprepaid/ui/HomeController.class
 com/niceprepaid/App.class
 com/niceprepaid/model/PrepaidCard.class
 com/niceprepaid/model/Customer.class
 com/niceprepaid/model/Card.class
+com/niceprepaid/ui/LoginController.class
 com/niceprepaid/ui/CustomerCreationController.class
 com/niceprepaid/ui/MainApp.class
