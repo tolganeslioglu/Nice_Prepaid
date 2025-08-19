@@ -66,7 +66,7 @@
                </font>
             </Label>
             <Button fx:id="viewCardButton" layoutX="115.0" layoutY="131.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" style="-fx-background-color: clear; -fx-border-color: white; -fx-border-radius: 15; -fx-text-fill: white;" text="View Card Details" />
-            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="438.0" layoutX="56.0" layoutY="176.0" stroke="WHITE" strokeLineCap="ROUND" strokeMiterLimit="0.0" strokeType="INSIDE" width="335.0" />
+            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="438.0" layoutX="57.0" layoutY="176.0" stroke="WHITE" strokeLineCap="ROUND" strokeMiterLimit="0.0" strokeType="INSIDE" width="335.0" />
             <Label fx:id="welcomeLabel" layoutX="80.0" layoutY="23.0" style="-fx-text-fill: white;" text="Welcome back" textFill="WHITE">
                <font>
                   <Font name="Helvetica Bold" size="13.0" />
