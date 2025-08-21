@@ -22,12 +22,16 @@ public class CardDetailsController {
     @FXML
     private Label nameField;
 
+    @FXML
+    private Label balanceLabel;
+
     public void setPrepaidCard(PrepaidCard prepaidCard) {
         this.prepaidCard = prepaidCard;
         if (prepaidCard != null) {
             cardNumberField.setText(prepaidCard.getCardNumber());
             expirationField.setText((prepaidCard.getExpirationDate()));
             cvvField.setText(prepaidCard.getCvv());
+            balanceLabel.setText(String.format("%.2f₺", prepaidCard.getBalance()));
         }
     }
 

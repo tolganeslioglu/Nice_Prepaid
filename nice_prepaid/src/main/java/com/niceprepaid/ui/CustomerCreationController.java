@@ -174,7 +174,7 @@ public class CustomerCreationController {
         for (int i = 0; i < customers.size(); i++) {
             ObjectNode customer = (ObjectNode) customers.get(i);
             if (customer.get("tckn").asText().equals(newTckn)) {
-                throw new IOException("This TCKN is already registered.");
+                throw new IOException("This Turkish ID number is already registered.");
             }
             if (customer.get("phoneNumber").asText().equals(newPhone)) {
                 throw new IOException("This phone number is already registered.");

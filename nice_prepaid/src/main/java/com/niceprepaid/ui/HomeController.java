@@ -36,7 +36,8 @@ public class HomeController {
         this.prepaidCard = prepaidCard;
         if (balanceLabel != null && prepaidCard != null) {
             balanceLabel.setText(String.format("%.2f₺", prepaidCard.getBalance()));
-        } else {
+        } 
+        else {
             balanceLabel.setText("----");
         }
     }
@@ -53,7 +54,7 @@ public class HomeController {
             balanceLabel.setText(String.format("%.2f₺", prepaidCard.getBalance()));
         } 
         else {
-            welcomeLabel.setText("---");
+            balanceLabel.setText("---");
         }
         if (viewCardButton != null) {
             viewCardButton.setOnAction(event -> handleViewCard());

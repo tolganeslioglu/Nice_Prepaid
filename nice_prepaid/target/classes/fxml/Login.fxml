@@ -68,7 +68,7 @@
                      </image>
                   </ImageView>
                   <Label fx:id="errorLabel" textFill="white" />
-                  <TextField fx:id="usernameField" prefHeight="22.0" prefWidth="209.0" promptText="Customer Number" style="-fx-background-color: #80808066; -fx-background-radius: 5; -fx-text-fill: white;" />
+                  <TextField fx:id="usernameField" prefHeight="22.0" prefWidth="209.0" promptText="Turkish ID Number" style="-fx-background-color: #80808066; -fx-background-radius: 5; -fx-text-fill: white;" />
                   <PasswordField fx:id="passwordField" promptText="Passcode" style="-fx-background-color: #80808066; -fx-background-radius: 5; -fx-text-fill: white;" />
                   <Button fx:id="loginButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 15; -fx-background-color: #329dfa; -fx-text-fill: white;" text="Login" textAlignment="CENTER" textFill="WHITE" />
                   <Button fx:id="becomeCustomerButton" alignment="CENTER" mnemonicParsing="false" onAction="#handleBecomeCustomer" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 15; -fx-background-color: white; -fx-text-fill: black;" text="Become a Customer" textAlignment="CENTER" />

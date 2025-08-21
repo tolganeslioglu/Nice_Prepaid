@@ -66,12 +66,30 @@
                </font>
             </Label>
             <Button fx:id="viewCardButton" layoutX="115.0" layoutY="131.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="221.0" style="-fx-background-color: clear; -fx-border-color: white; -fx-border-radius: 15; -fx-text-fill: white;" text="View Card Details" />
-            <Rectangle arcHeight="20.0" arcWidth="20.0" fill="WHITE" height="438.0" layoutX="57.0" layoutY="176.0" stroke="WHITE" strokeLineCap="ROUND" strokeMiterLimit="0.0" strokeType="INSIDE" width="335.0" />
+            <Rectangle arcHeight="30.0" arcWidth="30.0" fill="WHITE" height="440.0" layoutX="58.0" layoutY="189.0" stroke="WHITE" strokeLineCap="ROUND" strokeMiterLimit="0.0" strokeType="INSIDE" width="335.0" />
             <Label fx:id="welcomeLabel" layoutX="80.0" layoutY="23.0" style="-fx-text-fill: white;" text="Welcome back" textFill="WHITE">
                <font>
                   <Font name="Helvetica Bold" size="13.0" />
                </font>
             </Label>
+            <Button fx:id="viewCardButton1" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="200.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="314.0" style="-fx-background-color: clear; -fx-border-color: black; -fx-border-radius: 15; -fx-text-fill: black;" text="     Recent Transactions" textAlignment="CENTER" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="143.0" layoutY="207.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/history_16159383.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="viewCardButton12" alignment="CENTER" contentDisplay="CENTER" layoutX="69.0" layoutY="243.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="314.0" style="-fx-background-color: clear; -fx-border-color: black; -fx-border-radius: 15; -fx-text-fill: black;" text="Top Up" textAlignment="CENTER" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="143.0" layoutY="251.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/send-money_10176180.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="viewCardButton121" alignment="CENTER" contentDisplay="CENTER" layoutX="70.0" layoutY="286.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="314.0" style="-fx-background-color: clear; -fx-border-color: black; -fx-border-radius: 15; -fx-text-fill: black;" text="Send Money" textAlignment="CENTER" />
+            <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="143.0" layoutY="296.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/transfer_6522258.png" />
+               </image>
+            </ImageView>
          </children>
       </AnchorPane>
    </top>

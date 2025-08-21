@@ -206,7 +206,7 @@ public class LoginController {
                     System.err.println("Error loading Home.fxml: " + e.getMessage());
                 }
             } else {
-                errorLabel.setText("TCKN or passcode is incorrect.");
+                errorLabel.setText("Turkish ID number or passcode is incorrect.");
             }
         }
     }

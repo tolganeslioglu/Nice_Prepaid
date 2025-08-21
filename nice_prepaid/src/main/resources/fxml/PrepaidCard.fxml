@@ -65,29 +65,34 @@
                   <Font name="Helvetica Bold" size="13.0" />
                </font>
             </Label>
-            <ImageView fitHeight="301.0" fitWidth="422.0" layoutX="14.0" layoutY="136.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="301.0" fitWidth="422.0" layoutX="14.0" layoutY="108.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/image.png" />
                </image>
             </ImageView>
-            <Label fx:id="cardNumberField" layoutX="115.0" layoutY="209.0" style="-fx-text-fill: white;" text="Card Number">
+            <Label fx:id="cardNumberField" layoutX="115.0" layoutY="181.0" style="-fx-text-fill: white;" text="Card Number">
                <font>
                   <Font name="Helvetica" size="20.0" />
                </font>
             </Label>
-            <Label fx:id="nameField" layoutX="240.0" layoutY="323.0" style="-fx-text-fill: white;" text="Name Surname">
+            <Label fx:id="nameField" layoutX="240.0" layoutY="295.0" style="-fx-text-fill: white;" text="Name Surname">
                <font>
                   <Font name="Helvetica" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="expirationField" layoutX="115.0" layoutY="277.0" style="-fx-text-fill: white;" text="Expiration">
+            <Label fx:id="expirationField" layoutX="115.0" layoutY="249.0" style="-fx-text-fill: white;" text="Expiration">
                <font>
                   <Font name="Helvetica" size="14.0" />
                </font>
             </Label>
-            <Label fx:id="cvvField" layoutX="218.0" layoutY="277.0" style="-fx-text-fill: white;" text="CVV">
+            <Label fx:id="cvvField" layoutX="218.0" layoutY="249.0" style="-fx-text-fill: white;" text="CVV">
                <font>
                   <Font name="Helvetica" size="14.0" />
+               </font>
+            </Label>
+            <Label fx:id="balanceLabel" alignment="CENTER" contentDisplay="CENTER" layoutX="118.0" layoutY="387.0" prefHeight="35.0" prefWidth="215.0" style="-fx-text-fill: white; -fx-text-alignment: center;" text=" ₺ 0.00" textFill="#fcfafa">
+               <font>
+                  <Font size="29.0" />
                </font>
             </Label>
          </children>
