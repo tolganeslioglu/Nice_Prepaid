@@ -19,6 +19,8 @@ import java.io.File;
 import java.io.IOException;
 import java.time.LocalDate;
 import java.util.regex.Pattern;
+import java.util.Random;
+import java.time.format.DateTimeFormatter;
 
 public class CustomerCreationController {
 
@@ -67,12 +69,13 @@ public class CustomerCreationController {
     private void handleLogin() {
         if (validateInputs()) {
             try {
-                saveCustomer();
+                int newCustomerId = saveCustomer(); // Modify saveCustomer to return the new customerID
+                createAndSavePrepaidCard(newCustomerId);
                 clearFields();
-                errorLabel.setText("Customer created successfully!");
+                errorLabel.setText("Customer created successfully with a new prepaid card!");
             } catch (IOException e) {
-                errorLabel.setText("Error creating customer.");
-                System.err.println("Error saving customer: " + e.getMessage());
+                errorLabel.setText("Error creating customer or card.");
+                System.err.println("Error: " + e.getMessage());
             }
         }
     }
@@ -155,7 +158,7 @@ public class CustomerCreationController {
         return true;
     }
 
-    private void saveCustomer() throws IOException {
+    private int saveCustomer() throws IOException {
         ObjectMapper mapper = new ObjectMapper();
         File credentialsFile = new File("credentials.json");
         
@@ -188,7 +191,8 @@ public class CustomerCreationController {
         ObjectNode newCustomer = mapper.createObjectNode();
         newCustomer.put("tckn", newTckn);
         newCustomer.put("passcode", passcodeField1.getText());
-        newCustomer.put("customerID", generateNewCustomerId(customers));
+        int newCustomerId = generateNewCustomerId(customers);
+        newCustomer.put("customerID", newCustomerId);
         newCustomer.put("name", nameField.getText());
         newCustomer.put("surname", surnameField.getText());
         newCustomer.put("phoneNumber", newPhone);
@@ -197,6 +201,52 @@ public class CustomerCreationController {
 
         customers.add(newCustomer);
         mapper.writerWithDefaultPrettyPrinter().writeValue(credentialsFile, rootNode);
+        
+        return newCustomerId;
+    }
+
+    private void createAndSavePrepaidCard(int customerID) throws IOException {
+        ObjectMapper mapper = new ObjectMapper();
+        File cardsFile = new File("prepaidcards.json");
+        
+        ObjectNode rootNode;
+        if (!cardsFile.exists()) {
+            rootNode = mapper.createObjectNode();
+            rootNode.putArray("cards");
+        } else {
+            rootNode = (ObjectNode) mapper.readTree(cardsFile);
+        }
+
+        ArrayNode cards = (ArrayNode) rootNode.get("cards");
+        
+        // Generate random card details
+        Random random = new Random();
+        
+        // Generate 16-digit card number
+        StringBuilder cardNumber = new StringBuilder();
+        cardNumber.append("4"); // First digit for VISA
+        for (int i = 0; i < 15; i++) {
+            cardNumber.append(random.nextInt(10));
+        }
+        
+        // Generate 3-digit CVV
+        String cvv = String.format("%03d", random.nextInt(1000));
+        
+        // Calculate expiration date (5 years from now)
+        LocalDate expirationDate = LocalDate.now().plusYears(5);
+        String formattedExpDate = expirationDate.format(DateTimeFormatter.ofPattern("yyyy-MM"));
+        
+        // Create new card
+        ObjectNode newCard = mapper.createObjectNode();
+        newCard.put("customerID", customerID);
+        newCard.put("cardNumber", cardNumber.toString());
+        newCard.put("cardLogo", "VISA");
+        newCard.put("expirationDate", formattedExpDate);
+        newCard.put("cvv", cvv);
+        newCard.put("balance", 0.00);
+        
+        cards.add(newCard);
+        mapper.writerWithDefaultPrettyPrinter().writeValue(cardsFile, rootNode);
     }
 
     private int generateNewCustomerId(ArrayNode customers) {

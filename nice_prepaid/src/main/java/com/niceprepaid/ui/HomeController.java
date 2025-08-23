@@ -23,7 +23,7 @@ public class HomeController {
 
     private Customer customer;
 
-    private PrepaidCard prepaidCard;
+    public PrepaidCard prepaidCard;
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -44,21 +44,8 @@ public class HomeController {
 
     @FXML
     public void initialize() {
-        if (customer != null) {
-            welcomeLabel.setText("Welcome back, " + customer.getName());
-        } 
-        else {
-            welcomeLabel.setText("Welcome back");
-        }
-        if (prepaidCard != null) {
-            balanceLabel.setText(String.format("%.2f₺", prepaidCard.getBalance()));
-        } 
-        else {
-            balanceLabel.setText("---");
-        }
-        if (viewCardButton != null) {
-            viewCardButton.setOnAction(event -> handleViewCard());
-        }
+        setCustomer(LoginController.customer);
+        setPrepaidCard(LoginController.prepaid);
     }
 
     @FXML
@@ -67,13 +54,9 @@ public class HomeController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/PrepaidCard.fxml"));
             Scene scene = new Scene(loader.load());
             CardDetailsController controller = loader.getController();
-            controller.setPrepaidCard(prepaidCard);
-            controller.setCustomer(customer);
 
-            Stage stage = new Stage();
-            stage.setTitle("Prepaid Card");
+            Stage stage = (Stage) viewCardButton.getScene().getWindow();
             stage.setScene(scene);
-            stage.show();
         } catch (Exception e) {
             e.printStackTrace();
         }

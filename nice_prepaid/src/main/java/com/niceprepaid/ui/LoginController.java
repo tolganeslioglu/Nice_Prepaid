@@ -21,6 +21,9 @@ import java.util.Date;
 
 public class LoginController {
 
+    public static Customer customer;
+    public static PrepaidCard prepaid;
+
     @FXML
     private TextField usernameField;  // This will be used for TCKN
 
@@ -40,6 +43,8 @@ public class LoginController {
     private JsonNode prepaidCards;
 
     private Customer loggedInCustomer;
+
+    private boolean lastTcknExists;
 
     @FXML
     private void initialize() {
@@ -79,60 +84,75 @@ public class LoginController {
     }
 
     private Customer validateCredentials(String tckn, String passcode) {
-        if (credentials == null) return null;
+        if (credentials == null) {
+            lastTcknExists = false;
+            return null;
+        }
 
         JsonNode customers = credentials.get("customers");
-        if (customers == null || !customers.isArray()) return null;
+        if (customers == null || !customers.isArray()) {
+            lastTcknExists = false;
+            return null;
+        }
 
         int passcodeInt;
         try {
             passcodeInt = Integer.parseInt(passcode);
         } catch (NumberFormatException e) {
+            lastTcknExists = false;
             return null;
         }
+
+        boolean tcknExists = false;
 
         for (JsonNode customerNode : customers) {
             // Null-safe access for TCKN
             String jsonTckn = customerNode.hasNonNull("tckn") ? customerNode.get("tckn").asText() : null;
 
-            // Check passcode exists and is a valid integer
-            if (!customerNode.hasNonNull("passcode")) continue;
-            String jsonPasscodeStr = customerNode.get("passcode").asText();
-            int jsonPasscodeInt;
-            try {
-                jsonPasscodeInt = Integer.parseInt(jsonPasscodeStr);
-            } catch (NumberFormatException e) {
-                continue;
-            }
+            if (tckn != null && tckn.equals(jsonTckn)) {
+                tcknExists = true;
 
-            if (tckn != null && tckn.equals(jsonTckn) && passcodeInt == jsonPasscodeInt) {
-                int customerID = customerNode.hasNonNull("customerID") ? customerNode.get("customerID").asInt() : 0;
-                String name = customerNode.hasNonNull("name") ? customerNode.get("name").asText() : "";
-                String surname = customerNode.hasNonNull("surname") ? customerNode.get("surname").asText() : "";
-                String email = customerNode.hasNonNull("email") ? customerNode.get("email").asText() : "";
-                String phoneNumber = customerNode.hasNonNull("phoneNumber") ? customerNode.get("phoneNumber").asText() : "";
-                // Use "birthDate" from JSON, handle both timestamp and string
-                Date dateOfBirth = null;
-                if (customerNode.has("birthDate") && !customerNode.get("birthDate").isNull()) {
-                    JsonNode birthDateNode = customerNode.get("birthDate");
-                    if (birthDateNode.isNumber()) {
-                        dateOfBirth = new Date(birthDateNode.asLong());
-                    } else if (birthDateNode.isTextual()) {
-                        String dobString = birthDateNode.asText();
-                        try {
-                            dateOfBirth = new Date(Long.parseLong(dobString));
-                        } catch (NumberFormatException e) {
+                // Check passcode exists and is a valid integer
+                if (!customerNode.hasNonNull("passcode")) continue;
+                String jsonPasscodeStr = customerNode.get("passcode").asText();
+                int jsonPasscodeInt;
+                try {
+                    jsonPasscodeInt = Integer.parseInt(jsonPasscodeStr);
+                } catch (NumberFormatException e) {
+                    continue;
+                }
+
+                if (passcodeInt == jsonPasscodeInt) {
+                    int customerID = customerNode.hasNonNull("customerID") ? customerNode.get("customerID").asInt() : 0;
+                    String name = customerNode.hasNonNull("name") ? customerNode.get("name").asText() : "";
+                    String surname = customerNode.hasNonNull("surname") ? customerNode.get("surname").asText() : "";
+                    String email = customerNode.hasNonNull("email") ? customerNode.get("email").asText() : "";
+                    String phoneNumber = customerNode.hasNonNull("phoneNumber") ? customerNode.get("phoneNumber").asText() : "";
+                    // Use "birthDate" from JSON, handle both timestamp and string
+                    Date dateOfBirth = null;
+                    if (customerNode.has("birthDate") && !customerNode.get("birthDate").isNull()) {
+                        JsonNode birthDateNode = customerNode.get("birthDate");
+                        if (birthDateNode.isNumber()) {
+                            dateOfBirth = new Date(birthDateNode.asLong());
+                        } else if (birthDateNode.isTextual()) {
+                            String dobString = birthDateNode.asText();
                             try {
-                                dateOfBirth = new Date(dobString);
-                            } catch (Exception ex) {
-                                dateOfBirth = null;
+                                dateOfBirth = new Date(Long.parseLong(dobString));
+                            } catch (NumberFormatException e) {
+                                try {
+                                    dateOfBirth = new Date(dobString);
+                                } catch (Exception ex) {
+                                    dateOfBirth = null;
+                                }
                             }
                         }
                     }
+                    lastTcknExists = true;
+                    return new Customer(tckn, customerID, name, surname, email, phoneNumber, dateOfBirth, jsonPasscodeInt);
                 }
-                return new Customer(tckn, customerID, name, surname, email, phoneNumber, dateOfBirth, jsonPasscodeInt);
             }
         }
+        lastTcknExists = tcknExists;
         return null;
     }
 
@@ -182,9 +202,9 @@ public class LoginController {
             String tckn = usernameField.getText();
             String passcode = passwordField.getText();
 
-            Customer customer = validateCredentials(tckn, passcode);
+            customer = validateCredentials(tckn, passcode);
             if (customer != null) {
-                PrepaidCard prepaidCard = validatePrepaidCards(customer.getCustomerID());
+                prepaid = validatePrepaidCards(customer.getCustomerID());
                 loggedInCustomer = customer;
                 errorLabel.setText("Login Succesful!");
                 
@@ -193,8 +213,6 @@ public class LoginController {
                     Parent homeView = loader.load();
 
                     HomeController homeController = loader.getController();
-                    homeController.setCustomer(loggedInCustomer);
-                    homeController.setPrepaidCard(prepaidCard);
 
                     Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                     Scene scene = new Scene(homeView);
@@ -205,8 +223,10 @@ public class LoginController {
                     errorLabel.setText("Error loading home page");
                     System.err.println("Error loading Home.fxml: " + e.getMessage());
                 }
-            } else {
+            } else if (lastTcknExists) {
                 errorLabel.setText("Turkish ID number or passcode is incorrect.");
+            } else {
+                errorLabel.setText("No customer found with this Turkish ID number.");
             }
         }
     }

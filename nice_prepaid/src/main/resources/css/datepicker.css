@@ -1,0 +1,46 @@
+/* DatePicker text-field ve arrow-button */
+.transparent-date-picker {
+    -fx-background-color: #80808066;
+    -fx-background-radius: 5;
+}
+
+.transparent-date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-text-fill: white;
+    -fx-prompt-text-fill: rgba(255,255,255,0.7);
+}
+
+.transparent-date-picker .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.transparent-date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+}
+
+/* Reset popup styles to default */
+.date-picker-popup {
+    -fx-background-color: white;
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: white;
+}
+
+.date-picker-popup .calendar-grid {
+    -fx-background-color: white;
+}
+
+.date-picker-popup .calendar-grid .day-cell {
+    -fx-text-fill: black;
+}
+
+.date-picker-popup .calendar-grid .day-cell:hover {
+    -fx-background-color: #329dfa;
+    -fx-text-fill: white;
+}
+
+.date-picker-popup .calendar-grid .selected {
+    -fx-background-color: #329dfa;
+    -fx-text-fill: white;
+}
