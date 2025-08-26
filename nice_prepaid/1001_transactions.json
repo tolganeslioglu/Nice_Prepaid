@@ -1,0 +1,16 @@
+{
+  "transactions": [
+    {
+      "date": "2025-08-25 14:30",
+      "type": "DEPOSIT",
+      "amount": 100.00,
+      "balanceAfter": 100.00
+    },
+    {
+      "date": "2025-08-25 15:45",
+      "type": "WITHDRAWAL",
+      "amount": 50.00,
+      "balanceAfter": 50.00
+    }
+  ]
+}

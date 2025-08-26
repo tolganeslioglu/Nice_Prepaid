@@ -1,9 +1,19 @@
 package com.niceprepaid.ui;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.niceprepaid.model.CreditCard;
 import com.niceprepaid.model.Customer;
 import com.niceprepaid.model.PrepaidCard;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -21,9 +31,14 @@ public class HomeController {
     @FXML
     private Button viewCardButton;
 
+    @FXML
+    private Button transactionsButton;
+
     private Customer customer;
 
-    public PrepaidCard prepaidCard;
+    private PrepaidCard prepaidCard;
+
+    static CreditCard creditCard;
 
     public void setCustomer(Customer customer) {
         this.customer = customer;
@@ -61,4 +76,78 @@ public class HomeController {
             e.printStackTrace();
         }
     }
+
+    @FXML
+    private void handleRecentTransactions() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/Transactions.fxml"));
+            Scene scene = new Scene(loader.load());
+            TransactionsController controller = loader.getController();
+            controller.setCustomerID(customer.getCustomerID());
+
+            Stage stage = (Stage) transactionsButton.getScene().getWindow();
+            stage.setScene(scene);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleCreditCardButton() {
+        try {
+            boolean hasCreditCard = checkCustomerCreditCard(customer.getCustomerID());
+
+            FXMLLoader loader;
+            if (hasCreditCard) {
+                loader = new FXMLLoader(getClass().getResource("/fxml/CreditCard.fxml"));
+
+            } else {
+                loader = new FXMLLoader(getClass().getResource("/fxml/ApplyCreditCard.fxml"));
+            }
+
+            Parent view = loader.load();
+            Scene scene = new Scene(view);
+
+            Stage stage = (Stage) ((Node) viewCardButton).getScene().getWindow();
+            stage.setScene(scene);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    private boolean checkCustomerCreditCard(int customerID) {
+    try {
+        Path path = Paths.get("creditcards.json");
+        String json = Files.readString(path);
+
+        ObjectMapper mapper = new ObjectMapper();
+        JsonNode root = mapper.readTree(json);
+
+        JsonNode cards = root.get("creditCards");
+        if (cards != null && cards.isArray()) {
+            for (JsonNode node : cards) {
+                int cid = node.get("customerID").asInt();
+                if (cid == customerID) {
+                    creditCard = new CreditCard(
+                        cid,
+                        node.get("cardNumber").asText(),
+                        node.get("cardLogo").asText(),
+                        node.get("expirationDate").asText(),
+                        node.get("cvv").asText(),
+                        node.get("creditLimit").asDouble(),
+                        node.get("availableCredit").asDouble(),
+                        node.get("currentDebt").asDouble(),
+                        node.get("minimumPayment").asDouble(),
+                        node.get("dueDate").asText()
+                    );
+                    return true; // card found
+                }
+            }
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return false; // no card found
+}
 }
