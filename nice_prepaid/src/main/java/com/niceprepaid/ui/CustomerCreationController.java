@@ -66,7 +66,7 @@ public class CustomerCreationController {
     }
 
     @FXML
-    private void handleLogin() {
+    private void handleSignUp() {
         if (validateInputs()) {
             try {
                 int newCustomerId = saveCustomer(); // Modify saveCustomer to return the new customerID

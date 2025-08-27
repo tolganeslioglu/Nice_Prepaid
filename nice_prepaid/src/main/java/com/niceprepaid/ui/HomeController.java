@@ -102,7 +102,7 @@ public class HomeController {
                 loader = new FXMLLoader(getClass().getResource("/fxml/CreditCard.fxml"));
 
             } else {
-                loader = new FXMLLoader(getClass().getResource("/fxml/ApplyCreditCard.fxml"));
+                loader = new FXMLLoader(getClass().getResource("/fxml/ApplyForCreditCard.fxml"));
             }
 
             Parent view = loader.load();

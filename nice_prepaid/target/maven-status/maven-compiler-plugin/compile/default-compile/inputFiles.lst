@@ -1,12 +1,13 @@
 /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/model/CreditCard.java
-/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/LoginController.java
 /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/HomeController.java
+/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/model/PrepaidCard.java
+/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/MainApp.java
+/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/model/Card.java
+/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/LoginController.java
 /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/CustomerCreationController.java
 /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/model/Customer.java
 /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/App.java
 /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/CreditDetailsController.java
 /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/CardDetailsController.java
-/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/model/PrepaidCard.java
-/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/MainApp.java
+/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/ApplyForCreditController.java
 /Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/ui/TransactionsController.java
-/Users/tolga/Documents/GitHub/Nice_Prepaid/nice_prepaid/src/main/java/com/niceprepaid/model/Card.java

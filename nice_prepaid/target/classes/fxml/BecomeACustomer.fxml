@@ -47,7 +47,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.niceprepaid.ui.CustomerCreationController" stylesheets="@../css/datepicker.css">
+<View maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="335.0" stylesheets="@../css/datepicker.css" xmlns="http://javafx.com/javafx/24.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.niceprepaid.ui.CustomerCreationController">
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" BorderPane.alignment="CENTER">
          <children>
@@ -75,14 +75,10 @@
                   <TextField fx:id="surnameField" prefHeight="22.0" prefWidth="209.0" promptText="Surname" style="-fx-background-color: #80808066; -fx-background-radius: 5; -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.7);" />
                   <TextField fx:id="emailField" prefHeight="22.0" prefWidth="209.0" promptText="Email Adress" style="-fx-background-color: #80808066; -fx-background-radius: 5; -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.7);" />
                   <TextField fx:id="phoneField" prefHeight="22.0" prefWidth="209.0" promptText="Phone Number" style="-fx-background-color: #80808066; -fx-background-radius: 5; -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.7);" />
-                  <DatePicker fx:id="dateOfBirthField" 
-                              prefHeight="26.0" 
-                              prefWidth="285.0" 
-                              promptText="Date of Birth" 
-                              styleClass="transparent-date-picker"/>
+                  <DatePicker fx:id="dateOfBirthField" prefHeight="26.0" prefWidth="285.0" promptText="Date of Birth" styleClass="transparent-date-picker" />
                   <PasswordField fx:id="passcodeField1" promptText="Enter a Passcode of 6 Digits" style="-fx-background-color: #80808066; -fx-background-radius: 5; -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.7);" />
                   <PasswordField fx:id="passcodeField2" promptText="Enter the Passcode Again" style="-fx-background-color: #80808066; -fx-background-radius: 5; -fx-text-fill: white; -fx-prompt-text-fill: rgba(255,255,255,0.7);" />
-                  <Button fx:id="signUpField" alignment="CENTER" mnemonicParsing="false" onAction="#handleLogin" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 15; -fx-background-color: #329dfa; -fx-text-fill: white;" text="Sign Up" textAlignment="CENTER" textFill="WHITE" />
+                  <Button fx:id="signUpField" alignment="CENTER" mnemonicParsing="false" onAction="#handleSignUp" prefHeight="31.0" prefWidth="306.0" style="-fx-background-radius: 15; -fx-background-color: #329dfa; -fx-text-fill: white;" text="Sign Up" textAlignment="CENTER" textFill="WHITE" />
                </children>
             </VBox>
             <Button fx:id="backButton" layoutX="75.0" layoutY="29.0" mnemonicParsing="false" onAction="#handleBack" style="-fx-background-color: clear;" text="&lt; Back" textFill="WHITE">

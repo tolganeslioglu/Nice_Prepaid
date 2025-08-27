@@ -15,7 +15,12 @@
    <center>
       <AnchorPane prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: #1a4d7c;" BorderPane.alignment="CENTER">
          <children>
-            <ImageView fitHeight="214.0" fitWidth="346.0" layoutX="-5.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="80.0" fitWidth="72.0" layoutX="249.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../images/chatgpt-logo.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="214.0" fitWidth="346.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/gray-line-header-2.png" />
                </image>
@@ -23,34 +28,27 @@
                   <GaussianBlur />
                </effect>
             </ImageView>
-            <ImageView fitHeight="80.0" fitWidth="72.0" layoutX="249.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="214.0" fitWidth="346.0" layoutY="350.0" pickOnBounds="true" preserveRatio="true">
                <image>
-                  <Image url="@../images/chatgpt-logo.png" />
+                  <Image url="@../images/gray-line-header-2.png" />
                </image>
+               <effect>
+                  <GaussianBlur />
+               </effect>
             </ImageView>
-            <Button fx:id="backButton" layoutX="57.0" layoutY="525.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="31.0" prefWidth="221.0" style="-fx-background-color: clear; -fx-border-color: white; -fx-border-radius: 15; -fx-text-fill: white;" text="Back" />
+            <Button fx:id="backButton" layoutX="63.0" layoutY="529.0" mnemonicParsing="false" onAction="#handleBack" prefHeight="31.0" prefWidth="221.0" style="-fx-background-color: clear; -fx-border-color: white; -fx-border-radius: 15; -fx-text-fill: white;" text="Back" />
             <Label layoutX="28.0" layoutY="36.0" style="-fx-text-fill: white;" text="Transaction History" textFill="WHITE">
                <font>
                   <Font name="Helvetica Bold" size="13.0" />
                </font>
             </Label>
-            <ListView fx:id="transactionList" layoutX="17.0" layoutY="82.0" prefHeight="422.0" prefWidth="307.0" style="-fx-background-color: transparent; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: transparent;" />
             <Label fx:id="noTransactionsLabel" layoutX="106.0" layoutY="307.0" style="-fx-text-fill: white;" text="Transaction History" textFill="WHITE">
                <font>
                   <Font name="Helvetica Bold" size="13.0" />
                </font>
             </Label>
+            <ListView fx:id="transactionList" layoutX="29.0" layoutY="93.0" prefHeight="400.0" prefWidth="289.0" style="-fx-background-color: transparent; -fx-border-radius: 15; -fx-background-radius: 15; -fx-border-color: transparent;" />
          </children>
       </AnchorPane>
    </center>
-   <children>
-      <ImageView fitHeight="214.0" fitWidth="346.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../images/gray-line-header-2.png" />
-         </image>
-         <effect>
-            <GaussianBlur />
-         </effect>
-      </ImageView>
-   </children>
 </View>
