@@ -85,7 +85,7 @@
                   <Image url="@../images/send-money_10176180.png" />
                </image>
             </ImageView>
-            <Button fx:id="viewCardButton121" alignment="CENTER" contentDisplay="CENTER" layoutX="63.0" layoutY="308.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="314.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 15; -fx-text-fill: black;" text="     Send Money" textAlignment="CENTER" />
+            <Button fx:id="sendMoneyButton" alignment="CENTER" contentDisplay="CENTER" layoutX="63.0" layoutY="308.0" mnemonicParsing="false" onAction="#handleSendMoneyButton" prefHeight="35.0" prefWidth="314.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 15; -fx-text-fill: black;" text="     Send Money" textAlignment="CENTER" />
             <ImageView fitHeight="20.0" fitWidth="20.0" layoutX="137.0" layoutY="317.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../images/transfer_6522258.png" />

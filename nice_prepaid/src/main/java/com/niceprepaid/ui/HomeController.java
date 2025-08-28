@@ -1,23 +1,19 @@
 package com.niceprepaid.ui;
 
-import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ArrayNode;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+
 import com.niceprepaid.model.CreditCard;
 import com.niceprepaid.model.Customer;
 import com.niceprepaid.model.PrepaidCard;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
+
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -38,6 +34,12 @@ public class HomeController {
     
     @FXML
     private Button topUpButton;
+    
+    @FXML
+    private Button sendMoneyButton;
+
+    @FXML
+    private Button creditCardButton;
 
     @FXML
     private Button viewCardButton;
@@ -76,7 +78,6 @@ public class HomeController {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/PrepaidCard.fxml"));
             Scene scene = new Scene(loader.load());
-            CardDetailsController controller = loader.getController();
 
             Stage stage = (Stage) viewCardButton.getScene().getWindow();
             stage.setScene(scene);
@@ -118,7 +119,7 @@ public class HomeController {
             Parent view = loader.load();
             Scene scene = new Scene(view);
 
-            Stage stage = (Stage) topUpButton.getScene().getWindow();
+            Stage stage = (Stage) creditCardButton.getScene().getWindow();
             stage.setScene(scene);
 
         } 
@@ -160,6 +161,20 @@ public class HomeController {
 
         } 
         
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleSendMoneyButton() {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/SendMoney.fxml"));
+            Scene scene = new Scene(loader.load());
+
+            Stage stage = (Stage) sendMoneyButton.getScene().getWindow();
+            stage.setScene(scene);
+        } 
         catch (Exception e) {
             e.printStackTrace();
         }

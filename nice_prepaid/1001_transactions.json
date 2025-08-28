@@ -34,5 +34,15 @@
     "type" : "TOP-UP",
     "amount" : 1212.0,
     "balanceAfter" : 2752.5
+  }, {
+    "date" : "2025-08-28 22:02",
+    "type" : "DEPOSIT",
+    "amount" : 1111.0,
+    "balanceAfter" : 0.0
+  }, {
+    "date" : "2025-08-28 22:05",
+    "type" : "DEPOSIT",
+    "amount" : 1000.0,
+    "balanceAfter" : 1000.0
   } ]
 }

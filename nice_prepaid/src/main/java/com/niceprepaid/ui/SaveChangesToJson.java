@@ -1,5 +1,6 @@
 package com.niceprepaid.ui;
 
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.node.ArrayNode;
 import com.fasterxml.jackson.databind.node.ObjectNode;
@@ -155,4 +156,29 @@ public class SaveChangesToJson {
             e.printStackTrace();
         }
     }
+
+    public static ObjectNode getPrepaidCardByNumber(String cardNumber) {
+    String fileName = "prepaidcards.json";
+    ObjectMapper mapper = new ObjectMapper();
+    File file = new File(fileName);
+
+    if (!file.exists()) {
+        return null;
+    }
+
+    try {
+        ObjectNode rootNode = (ObjectNode) mapper.readTree(file);
+        ArrayNode cardsArray = (ArrayNode) rootNode.get("cards");
+        if (cardsArray != null) {
+            for (JsonNode node : cardsArray) {
+                if (node.get("cardNumber").asText().equals(cardNumber)) {
+                    return (ObjectNode) node;
+                }
+            }
+        }
+    } catch (IOException e) {
+        e.printStackTrace();
+    }
+    return null;
+}
 }

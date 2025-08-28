@@ -9,5 +9,40 @@
     "type" : "TOP-UP",
     "amount" : 111.0,
     "balanceAfter" : 1111.0
+  }, {
+    "date" : "2025-08-28 22:01",
+    "type" : "MONEY SEND",
+    "amount" : 1000.0,
+    "balanceAfter" : 111.0
+  }, {
+    "date" : "2025-08-28 22:02",
+    "type" : "TOP-UP",
+    "amount" : 1000.0,
+    "balanceAfter" : 1111.0
+  }, {
+    "date" : "2025-08-28 22:02",
+    "type" : "MONEY SEND",
+    "amount" : 1111.0,
+    "balanceAfter" : 0.0
+  }, {
+    "date" : "2025-08-28 22:03",
+    "type" : "TOP-UP",
+    "amount" : 1000.0,
+    "balanceAfter" : 1000.0
+  }, {
+    "date" : "2025-08-28 22:03",
+    "type" : "MONEY SEND",
+    "amount" : 1000.0,
+    "balanceAfter" : 0.0
+  }, {
+    "date" : "2025-08-28 22:05",
+    "type" : "TOP-UP",
+    "amount" : 2000.0,
+    "balanceAfter" : 2000.0
+  }, {
+    "date" : "2025-08-28 22:05",
+    "type" : "MONEY SEND",
+    "amount" : 1000.0,
+    "balanceAfter" : 1000.0
   } ]
 }
