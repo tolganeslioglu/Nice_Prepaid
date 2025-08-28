@@ -1,12 +1,17 @@
 package com.niceprepaid.ui;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.node.ArrayNode;
+import com.fasterxml.jackson.databind.node.ObjectNode;
 import com.niceprepaid.model.CreditCard;
 import com.niceprepaid.model.Customer;
 import com.niceprepaid.model.PrepaidCard;
@@ -29,10 +34,13 @@ public class HomeController {
     private Label balanceLabel;
 
     @FXML
-    private Button viewCardButton;
+    private Button transactionsButton;
+    
+    @FXML
+    private Button topUpButton;
 
     @FXML
-    private Button transactionsButton;
+    private Button viewCardButton;
 
     private Customer customer;
 
@@ -101,17 +109,58 @@ public class HomeController {
             if (hasCreditCard) {
                 loader = new FXMLLoader(getClass().getResource("/fxml/CreditCard.fxml"));
 
-            } else {
+            } 
+            
+            else {
                 loader = new FXMLLoader(getClass().getResource("/fxml/ApplyForCreditCard.fxml"));
             }
 
             Parent view = loader.load();
             Scene scene = new Scene(view);
 
-            Stage stage = (Stage) ((Node) viewCardButton).getScene().getWindow();
+            Stage stage = (Stage) topUpButton.getScene().getWindow();
             stage.setScene(scene);
 
-        } catch (Exception e) {
+        } 
+        
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleTopUpButton() {
+        try {
+            boolean hasCreditCard = checkCustomerCreditCard(customer.getCustomerID());
+
+            FXMLLoader loader;
+            if (hasCreditCard) {
+                loader = new FXMLLoader(getClass().getResource("/fxml/TopUp.fxml"));
+            } 
+            
+            else {
+                javafx.scene.control.Alert alert = new javafx.scene.control.Alert(javafx.scene.control.Alert.AlertType.INFORMATION);
+                alert.setTitle("No Card Found to Top-Up From");
+                alert.setHeaderText(null);
+                alert.setContentText("You need to have a credit card to top-up your prepaid card.");
+
+                alert.showAndWait();
+
+                loader = new FXMLLoader(getClass().getResource("/fxml/Home.fxml"));
+                Scene scene = new Scene(loader.load());
+                Stage stage = (Stage) topUpButton.getScene().getWindow();
+                stage.setScene(scene);
+            }
+
+            Parent view = loader.load();
+            Scene scene = new Scene(view);
+
+            Stage stage = (Stage) topUpButton.getScene().getWindow();
+            stage.setScene(scene);
+
+        } 
+        
+        catch (Exception e) {
             e.printStackTrace();
         }
     }
@@ -145,9 +194,11 @@ public class HomeController {
                 }
             }
         }
-    } catch (IOException e) {
+    } 
+    catch (IOException e) {
         e.printStackTrace();
+        }
+        return false; // no card found  
     }
-    return false; // no card found
-}
+
 }

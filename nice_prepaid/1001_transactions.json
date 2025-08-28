@@ -1,16 +1,38 @@
 {
-  "transactions": [
-    {
-      "date": "2025-08-25 14:30",
-      "type": "DEPOSIT",
-      "amount": 100.00,
-      "balanceAfter": 100.00
-    },
-    {
-      "date": "2025-08-25 15:45",
-      "type": "WITHDRAWAL",
-      "amount": 50.00,
-      "balanceAfter": 50.00
-    }
-  ]
+  "transactions" : [ {
+    "date" : "2025-08-25 14:30",
+    "type" : "DEPOSIT",
+    "amount" : 100.0,
+    "balanceAfter" : 100.0
+  }, {
+    "date" : "2025-08-25 15:45",
+    "type" : "WITHDRAWAL",
+    "amount" : 50.0,
+    "balanceAfter" : 50.0
+  }, {
+    "date" : "2025-08-28 16:46",
+    "type" : "TOP-UP",
+    "amount" : 15.0,
+    "balanceAfter" : 1515.5
+  }, {
+    "date" : "2025-08-28 16:46",
+    "type" : "TOP-UP",
+    "amount" : 15.0,
+    "balanceAfter" : 1530.5
+  }, {
+    "date" : "2025-08-28 16:54",
+    "type" : "TOP-UP",
+    "amount" : 15.0,
+    "balanceAfter" : 1515.5
+  }, {
+    "date" : "2025-08-28 16:54",
+    "type" : "TOP-UP",
+    "amount" : 25.0,
+    "balanceAfter" : 1540.5
+  }, {
+    "date" : "2025-08-28 17:02",
+    "type" : "TOP-UP",
+    "amount" : 1212.0,
+    "balanceAfter" : 2752.5
+  } ]
 }

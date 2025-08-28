@@ -78,14 +78,25 @@
     "dueDate" : "2025-09-15"
   }, {
     "customerID" : 1001,
-    "cardNumber" : "4859619827208683",
+    "cardNumber" : "4428967590473778",
     "cardLogo" : "VISA",
     "expirationDate" : "2030-08",
-    "cvv" : "222",
+    "cvv" : "170",
     "creditLimit" : 10000.0,
-    "availableCredit" : 10000.0,
-    "currentDebt" : 0.0,
+    "availableCredit" : 8748.0,
+    "currentDebt" : 1252.0,
     "minimumPayment" : 0.0,
-    "dueDate" : "2025-09-27"
+    "dueDate" : "2025-09-28"
+  }, {
+    "customerID" : 1010,
+    "cardNumber" : "4331317086664217",
+    "cardLogo" : "VISA",
+    "expirationDate" : "2030-08",
+    "cvv" : "085",
+    "creditLimit" : 10000.0,
+    "availableCredit" : 9000.0,
+    "currentDebt" : 1000.0,
+    "minimumPayment" : 0.0,
+    "dueDate" : "2025-09-28"
   } ]
 }

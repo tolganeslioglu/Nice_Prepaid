@@ -1,0 +1,8 @@
+{
+  "transactions" : [ {
+    "date" : "2025-08-28 16:56",
+    "type" : "TOP-UP",
+    "amount" : 1000.0,
+    "balanceAfter" : 1000.0
+  } ]
+}

@@ -5,7 +5,7 @@
     "cardLogo" : "VISA",
     "expirationDate" : "2027-12",
     "cvv" : "123",
-    "balance" : 1500.5
+    "balance" : 2752.5
   }, {
     "customerID" : 1002,
     "cardNumber" : "5412345678904321",
@@ -55,5 +55,12 @@
     "expirationDate" : "2030-08",
     "cvv" : "358",
     "balance" : 0.0
+  }, {
+    "customerID" : 1010,
+    "cardNumber" : "4811281658590812",
+    "cardLogo" : "VISA",
+    "expirationDate" : "2030-08",
+    "cvv" : "927",
+    "balance" : 1000.0
   } ]
 }
