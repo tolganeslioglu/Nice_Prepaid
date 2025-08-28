@@ -103,7 +103,7 @@
                   <Font name="Helvetica" size="13.0" />
                </font>
             </Label>
-            <Button fx:id="backButton" layoutX="67.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="31.0" prefWidth="306.0" style="-fx-background-color: clear; -fx-border-color: black; -fx-border-radius: 15; -fx-text-fill: black;" text="Back" />
+            <Button fx:id="backButton" layoutX="67.0" layoutY="547.0" mnemonicParsing="false" onAction="#handleBackButton" prefHeight="31.0" prefWidth="306.0" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 15; -fx-text-fill: black;" text="Back" />
          </children>
       </AnchorPane>
    </top>

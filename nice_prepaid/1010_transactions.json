@@ -4,5 +4,10 @@
     "type" : "TOP-UP",
     "amount" : 1000.0,
     "balanceAfter" : 1000.0
+  }, {
+    "date" : "2025-08-28 17:07",
+    "type" : "TOP-UP",
+    "amount" : 111.0,
+    "balanceAfter" : 1111.0
   } ]
 }

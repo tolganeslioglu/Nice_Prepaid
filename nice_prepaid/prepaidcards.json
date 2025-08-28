@@ -61,6 +61,6 @@
     "cardLogo" : "VISA",
     "expirationDate" : "2030-08",
     "cvv" : "927",
-    "balance" : 1000.0
+    "balance" : 1111.0
   } ]
 }

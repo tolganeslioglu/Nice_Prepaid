@@ -94,8 +94,8 @@
     "expirationDate" : "2030-08",
     "cvv" : "085",
     "creditLimit" : 10000.0,
-    "availableCredit" : 9000.0,
-    "currentDebt" : 1000.0,
+    "availableCredit" : 8889.0,
+    "currentDebt" : 1111.0,
     "minimumPayment" : 0.0,
     "dueDate" : "2025-09-28"
   } ]
