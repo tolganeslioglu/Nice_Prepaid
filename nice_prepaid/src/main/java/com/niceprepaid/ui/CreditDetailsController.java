@@ -64,7 +64,7 @@ public class CreditDetailsController {
             availableCreditLabel.setText(String.format("Available Credit: " + "%.2f₺", creditCard.getAvailableCredit()));
             currentDebtLabel.setText(String.format("Current Debt: " + "%.2f₺", creditCard.getCurrentDebt()));
             minimumPaymentLabel.setText(String.format("Minimum Payment Amouth: " + "%.2f₺", creditCard.getMinimumPayment()));
-            dueDateLabel.setText("Payement Due Date: " + creditCard.getDueDate());
+            dueDateLabel.setText("Payment Due Date: " + creditCard.getDueDate());
 
 
             if (creditCard.getCardLogo().equalsIgnoreCase("VISA")) {
